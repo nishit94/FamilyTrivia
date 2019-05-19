@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "473151273526",
+    "firebase_url": "https://familyapp-17f3f.firebaseio.com",
+    "project_id": "familyapp-17f3f",
+    "storage_bucket": "familyapp-17f3f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:473151273526:android:7b245ffa2558bced",
+        "android_client_info": {
+          "package_name": "com.example.familyapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "473151273526-nomte45ri12hgfijhicr8ko9h99a06ev.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.familyapp",
+            "certificate_hash": "350248fcab7d13ed83f1144be46a1c422ebafb92"
+          }
+        },
+        {
+          "client_id": "473151273526-09sait4v3477pdm73avddhn69keuv3ba.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrwYjTacehzjXtGqqXjaFnyYO9aqI7eVg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "473151273526-09sait4v3477pdm73avddhn69keuv3ba.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "473151273526-p7ush8l6kn8h1fi74qigd30rp4kr170q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dharav.FamilyApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
