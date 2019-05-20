@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/poplayout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/popup">
+
+    <RelativeLayout
+        android:layout_width="230dp"
+        android:layout_height="110dp"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/wldyourth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Would you rather....." />
+
+        <TextView
+            android:id="@+id/choice1"
+            android:layout_below="@id/wldyourth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/popuptextview"
+            android:text="Choice 1" />
+
+        <TextView
+            android:id="@+id/choice2"
+            android:layout_below="@id/choice1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/popuptextview"
+            android:text="Choice 2" />
+
+        <ImageButton
+            android:id="@+id/close_popup"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:src="@drawable/cancel_icon" />
+
+        <Button
+            android:id="@+id/skip"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@id/choice2"
+            android:layout_width="45dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/editbutton"
+            android:text="Skip" />
+    </RelativeLayout>
+
+</RelativeLayout>

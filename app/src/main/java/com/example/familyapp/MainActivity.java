@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -49,32 +50,47 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    private void signIn() {
+        progressDialog = new ProgressDialog(MainActivity.this);
+        progressDialog.setMessage("Signing In...");
+        progressDialog.setIndeterminate(false);
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+        String mail = username.getText().toString();
+        String pass = password.getText().toString();
+        firebaseAuth.signInWithEmailAndPassword(mail, pass)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            startActivity(new Intent(MainActivity.this, Home.class));
+                            progressDialog.dismiss();
+                        } else {
+                            Toast.makeText(MainActivity.this, "Authentication Failed", Toast.LENGTH_SHORT).show();
+                            progressDialog.dismiss();
+                        }
+                    }
+                });
+    }
+
+    private void validateUser() {
+        String mail = username.getText().toString();
+        String pass = password.getText().toString();
+        if (TextUtils.isEmpty(mail)) {
+            username.setError("Required");
+        } else if (TextUtils.isEmpty(pass)) {
+            password.setError("Required");
+        } else {
+            signIn();
+        }
+    }
+
     @Override
     public void onClick(View v) {
         if (v == login) {
-            progressDialog = new ProgressDialog(MainActivity.this);
-            progressDialog.setMessage("Signing In...");
-            progressDialog.setIndeterminate(false);
-            progressDialog.setCancelable(false);
-            progressDialog.show();
-            String mail = username.getText().toString();
-            String pass = password.getText().toString();
-            firebaseAuth.signInWithEmailAndPassword(mail, pass)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                startActivity(new Intent(MainActivity.this, Home.class));
-                                progressDialog.dismiss();
-                            } else {
-                                Toast.makeText(MainActivity.this, "Authentication Failed", Toast.LENGTH_SHORT).show();
-                                progressDialog.dismiss();
-                            }
-                        }
-                    });
+            validateUser();
         } else if (v == signup) {
-            Intent intent = new Intent(MainActivity.this, Register.class);
-            startActivity(intent);
+            startActivity(new Intent(MainActivity.this, Register.class));
         } else if (v == forgotPassword) {
             startActivity(new Intent(MainActivity.this, forgotpassword.class));
         }
