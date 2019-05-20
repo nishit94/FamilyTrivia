@@ -1,6 +1,7 @@
 package com.example.familyapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,12 +14,13 @@ import android.widget.PopupWindow;
 
 
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements View.OnClickListener {
 
     private OnFragmentInteractionListener mListener;
     private ImageButton imageButton;
     private Context mContext;
     private PopupWindow popupWindow;
+    private ImageButton trivia;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -33,26 +35,13 @@ public class HomeFragment extends Fragment {
         mContext = homeView.getContext().getApplicationContext();
 
 
-        imageButton = (ImageButton) homeView.findViewById(R.id.imgbutton);
+        imageButton = homeView.findViewById(R.id.imgbutton);
+        trivia=homeView.findViewById(R.id.trivia);
 
-        imageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LayoutInflater layoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                View views = layoutInflater.inflate(R.layout.popup_layout, null);
-                popupWindow = new PopupWindow(views, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                popupWindow.setOutsideTouchable(true);
-                ImageButton button = (ImageButton) views.findViewById(R.id.close_popup);
-                button.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        popupWindow.dismiss();
-                    }
-                });
-                popupWindow.showAtLocation(imageButton, Gravity.CENTER,-80,500);
-            }
-        });
-       // return inflater.inflate(R.layout.fragment_home, container, false);
+
+        imageButton.setOnClickListener(this);
+        trivia.setOnClickListener(this);
+
         return homeView;
     }
 
@@ -63,6 +52,28 @@ public class HomeFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onClick(View v) {
+        if(v==imageButton)
+        {
+            LayoutInflater layoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View views = layoutInflater.inflate(R.layout.popup_layout, null);
+            popupWindow = new PopupWindow(views, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            popupWindow.setOutsideTouchable(true);
+            ImageButton button = (ImageButton) views.findViewById(R.id.close_popup);
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    popupWindow.dismiss();
+                }
+            });
+            popupWindow.showAtLocation(imageButton, Gravity.CENTER,-80,500);
+        }
+        else if (v==trivia)
+        {
+            startActivity(new Intent(mContext, Triviagame.class));
+        }
+    }
 
 
     /**

@@ -16,7 +16,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Would you rather....." />
+            android:text="Would you rather....."
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/choice1"
@@ -25,7 +26,8 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:background="@drawable/popuptextview"
-            android:text="Choice 1" />
+            android:text="Choice 1"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/choice2"
@@ -34,7 +36,8 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:background="@drawable/popuptextview"
-            android:text="Choice 2" />
+            android:text="Choice 2"
+            android:textStyle="bold"/>
 
         <ImageButton
             android:id="@+id/close_popup"
