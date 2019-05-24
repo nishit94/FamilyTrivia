@@ -4,28 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Triviagame">
+    tools:context=".Triviagame" android:background="@drawable/bg1">
+
+    <TextView
+        android:id="@+id/que"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Question"
+        android:layout_margin="50dp"/>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/option"
+        android:layout_below="@id/que"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_centerHorizontal="true"
-        >
-
-            <TextView
+        android:background="@android:color/transparent">
+            <RadioGroup
+                android:id="@+id/choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Question" />
-
-            <RadioGroup
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:textAlignment="center">
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Choice 1 " />
+                    android:text="Choice 1 "
+                    />
 
                 <RadioButton
                     android:layout_width="wrap_content"
@@ -46,19 +52,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            >
+            android:layout_marginTop="30dp">
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Hint" />
+                android:text="Hint"
+                android:layout_margin="20dp"
+                android:background="@drawable/editbutton"/>
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="OK" />
+                android:layout_margin="20dp"
+                android:text="OK"
+                android:background="@drawable/editbutton"/>
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

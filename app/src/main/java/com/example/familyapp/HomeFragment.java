@@ -21,6 +21,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private Context mContext;
     private PopupWindow popupWindow;
     private ImageButton trivia;
+    private ImageButton doUrem;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -34,14 +35,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         View homeView = inflater.inflate(R.layout.fragment_home, container, false);
         mContext = homeView.getContext().getApplicationContext();
 
-
         imageButton = homeView.findViewById(R.id.imgbutton);
         trivia=homeView.findViewById(R.id.trivia);
-
+        doUrem=homeView.findViewById(R.id.douremember);
 
         imageButton.setOnClickListener(this);
         trivia.setOnClickListener(this);
-
+        doUrem.setOnClickListener(this);
         return homeView;
     }
 
@@ -72,6 +72,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         else if (v==trivia)
         {
             startActivity(new Intent(mContext, Triviagame.class));
+        }
+        else if(v==doUrem)
+        {
+            startActivity(new Intent(mContext, Dourem.class));
         }
     }
 

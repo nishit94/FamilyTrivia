@@ -56,7 +56,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
     private Button registerUser;
     private Calendar calendar = Calendar.getInstance();
     private int GALLERY = 1, CAMERA = 2;
-    private static final String IMAGE_DIRECTORY = "/demonuts";
+    public static final String IMAGE_DIRECTORY = "/FamilyApp";
 
     private FirebaseAuth firebaseAuth;
     private CircleImageView uploadPic;
@@ -66,7 +66,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        requestMultiplePermissions();
+
 
         firstName = findViewById(R.id.first);
         lastName = findViewById(R.id.last);
@@ -288,6 +288,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
             Intent intent = new Intent(Register.this, MainActivity.class);
             startActivity(intent);
         } else if (v == uploadPic) {
+            requestMultiplePermissions();
             uploadProfilepicture();
         }
     }
