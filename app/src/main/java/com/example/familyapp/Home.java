@@ -61,4 +61,11 @@ public class Home extends AppCompatActivity {
         transaction.commit();
 
     }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
+
+
 }

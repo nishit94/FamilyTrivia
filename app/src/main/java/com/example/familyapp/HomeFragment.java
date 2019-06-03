@@ -22,10 +22,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private PopupWindow popupWindow;
     private ImageButton trivia;
     private ImageButton doUrem;
+    private ImageButton wlty;
 
-    public HomeFragment() {
-        // Required empty public constructor
-    }
+    public HomeFragment() {}
 
     @Override
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
@@ -38,10 +37,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         imageButton = homeView.findViewById(R.id.imgbutton);
         trivia=homeView.findViewById(R.id.trivia);
         doUrem=homeView.findViewById(R.id.douremember);
+        wlty=homeView.findViewById(R.id.challenge);
+
 
         imageButton.setOnClickListener(this);
         trivia.setOnClickListener(this);
         doUrem.setOnClickListener(this);
+        wlty.setOnClickListener(this);
         return homeView;
     }
 
@@ -77,6 +79,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         {
             startActivity(new Intent(mContext, Dourem.class));
         }
+        else if (v==wlty)
+        {
+            startActivity(new Intent(mContext, Wouldlie.class));
+        }
     }
 
 
@@ -93,5 +99,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
     }
 }
